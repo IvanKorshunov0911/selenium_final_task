@@ -18,4 +18,7 @@ class BasePage():
         return True
 
     def does_url_contain(self, what):
-        assert self.browser.current_url.find(what) != -1, "URL does not contain string"
+        if self.browser.current_url.find(what) == -1:
+            return False
+        else:
+            return True
