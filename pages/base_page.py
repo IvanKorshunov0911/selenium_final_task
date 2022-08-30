@@ -16,3 +16,6 @@ class BasePage():
         except (NoSuchElementException):
             return False
         return True
+
+    def does_url_contain(self, what):
+        assert self.browser.current_url.find(what) != -1, "URL does not contain string"
