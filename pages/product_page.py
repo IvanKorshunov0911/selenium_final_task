@@ -9,9 +9,13 @@ class ProductPage(BasePage):
     def should_be_added_to_cart_message(self):
         title = self.get_element_text(*ProductPageLocators.PRODUCT_NAME).strip()
         cart_message = self.get_element_text(*ProductPageLocators.ADDED_TO_CART_MESSAGE).strip()
-        assert cart_message.find(title) != -1, f'Expected "{cart_message}" contain "{title}"'
+        print(title)
+        print(cart_message)
+        assert cart_message == title, f'Expected "{cart_message}" equal "{title}"'
 
     def should_be_cart_price_message(self):
         price = self.get_element_text(*ProductPageLocators.PRICE).strip()
         cart_price_message = self.get_element_text(*ProductPageLocators.CART_PRICE_MESSAGE).strip()
-        assert cart_price_message.find(price) != -1, f'Expected "{cart_price_message}" contain "{price}"'
+        print(price)
+        print(cart_price_message)
+        assert cart_price_message == price, f'Expected "{cart_price_message}" equal "{price}"'

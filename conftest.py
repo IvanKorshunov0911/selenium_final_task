@@ -9,10 +9,13 @@ from selenium.webdriver.support import expected_conditions as EC
 def pytest_addoption(parser):
     parser.addoption('--language', action='store', default='en',
                      help="Choose language")
+    parser.addoption('--link', action='store', default=None,
+                     help="Choose language")
 
 @pytest.fixture(scope="function")
 def browser(request):
     language = request.config.getoption("language")
+    link = request.config.getoption("link")
     browser = None
     print(f"\nstart browser for test. Language is {language}")
     options = Options()
