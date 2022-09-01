@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
+
 class ProductPage(BasePage):
     def add_to_cart(self):
         add_to_cart_link = self.browser.find_element(*ProductPageLocators.ADD_TO_CART_LINK)
@@ -18,8 +19,8 @@ class ProductPage(BasePage):
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.ADDED_TO_CART_MESSAGE), \
-           "Success message is presented, but should not be"
+            "Success message is presented, but should not be"
 
     def should_dissapear_success_message(self):
         assert self.is_disappeared(*ProductPageLocators.ADDED_TO_CART_MESSAGE), \
-           "Success message is presented, but should not be"
+            "Success message is presented, but should not be"
